@@ -162,19 +162,19 @@ class BodyFrame(ttk.Frame):
         if self.completed_rounds == 4:
             self._study_is_complete()
         else:
-            self.reset_step()
             self.start_pause_button.configure(bootstyle=WARNING, state=NORMAL, text="Start")
             self.reset_button.configure(state=NORMAL)
             self.mode_label.configure(bootstyle=(INVERSE, PRIMARY), text="Break time")
             self._is_study_time = False
+            self.reset_step()
             messagebox.showinfo("Parabéns!!!", "Você completou o tempo de estudo, aproveite para descansar!")
 
     def _break_time_is_up(self):
-        self.reset_step()
         self.start_pause_button.configure(bootstyle=WARNING, state=NORMAL, text="Start")
         self.reset_button.configure(state=NORMAL)
         self.mode_label.configure(bootstyle=(INVERSE, WARNING), text="Study time")
         self._is_study_time = True
+        self.reset_step()
         messagebox.showinfo("Bora focar de novo?", "O tempo de descanso acabou! Siga no foco, você consegue!")
 
     def reset_step(self):
